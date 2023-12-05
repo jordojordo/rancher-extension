@@ -1,9 +1,10 @@
 name: Build and release container to registry
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
+  # push:
+  #   branches:
+  #     - main
 
 env:
   REGISTRY: ghcr.io

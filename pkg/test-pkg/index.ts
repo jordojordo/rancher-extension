@@ -10,5 +10,5 @@ export default function(plugin: IPlugin) {
   plugin.metadata = require('./package.json');
 
   // Load a product
-  plugin.addProduct(require('./product'));
+  plugin.addProduct(require('./productz')); // test break build
 }
