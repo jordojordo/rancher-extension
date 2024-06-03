@@ -1,0 +1,10 @@
+nameOverride: ''
+fullnameOverride: ''
+plugin:
+  enabled: true
+  versionOverride: ''
+  noCache: false
+  metadata:
+    annotations:
+      catalog.cattle.io/kube-version: '>= v1.16.0-0 < v1.31.0-0'
+      catalog.cattle.io/rancher-version: '>= v2.8.3'

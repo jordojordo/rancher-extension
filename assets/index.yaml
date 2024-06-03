@@ -11,6 +11,25 @@ entries:
       catalog.cattle.io/scope: management
       catalog.cattle.io/ui-component: plugins
     apiVersion: v2
+    appVersion: 0.1.1
+    created: "2024-06-03T17:40:48.740671346Z"
+    description: cluster-scoped-test plugin
+    digest: 9ffcdeb1c21624654e6632eaacec77ad41809fd364f0956a3a2401aaefe8eb9b
+    name: cluster-scoped-test
+    type: application
+    urls:
+    - assets/cluster-scoped-test/cluster-scoped-test-0.1.1.tgz
+    version: 0.1.1
+  - annotations:
+      catalog.cattle.io/certified: rancher
+      catalog.cattle.io/kube-version: '>= v1.16.0-0 < v1.31.0-0'
+      catalog.cattle.io/namespace: cattle-ui-plugin-system
+      catalog.cattle.io/os: linux
+      catalog.cattle.io/permits-os: linux, windows
+      catalog.cattle.io/rancher-version: '>= v2.8.3'
+      catalog.cattle.io/scope: management
+      catalog.cattle.io/ui-component: plugins
+    apiVersion: v2
     appVersion: 0.1.0
     created: "2024-06-03T17:32:36.46921449Z"
     description: cluster-scoped-test plugin
@@ -116,4 +135,4 @@ entries:
     urls:
     - assets/test-pkg/test-pkg-0.1.0.tgz
     version: 0.1.0
-generated: "2024-06-03T17:32:36.468884983Z"
+generated: "2024-06-03T17:40:48.740028912Z"
