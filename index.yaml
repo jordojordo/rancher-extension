@@ -3,6 +3,25 @@ entries:
   test-pkg:
   - annotations:
       catalog.cattle.io/certified: rancher
+      catalog.cattle.io/kube-version: '>= v1.16.0-0 < v1.31.0-0'
+      catalog.cattle.io/namespace: cattle-ui-plugin-system
+      catalog.cattle.io/os: linux
+      catalog.cattle.io/permits-os: linux, windows
+      catalog.cattle.io/rancher-version: '>= 2.7.5-0'
+      catalog.cattle.io/scope: management
+      catalog.cattle.io/ui-component: plugins
+    apiVersion: v2
+    appVersion: 0.2.1
+    created: "2024-06-03T17:22:38.933650563Z"
+    description: test-pkg plugin
+    digest: 2c569872fd2c5bbb545bb7dd555caa7710c315478f2ebcb19305a5708222e5aa
+    name: test-pkg
+    type: application
+    urls:
+    - assets/test-pkg/test-pkg-0.2.1.tgz
+    version: 0.2.1
+  - annotations:
+      catalog.cattle.io/certified: rancher
       catalog.cattle.io/kube-version: '>= 1.16.0-0 < 1.29.0-0'
       catalog.cattle.io/namespace: cattle-ui-plugin-system
       catalog.cattle.io/os: linux
@@ -77,4 +96,4 @@ entries:
     urls:
     - assets/test-pkg/test-pkg-0.1.0.tgz
     version: 0.1.0
-generated: "2024-01-17T14:02:55.298538027Z"
+generated: "2024-06-03T17:22:38.93327017Z"
