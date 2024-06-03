@@ -11,4 +11,9 @@ spec:
     endpoint: http://{{ include "extension-server.fullname" . }}.{{ .Release.Namespace }}.svc
     noCache: {{ .Values.plugin.noCache }}
     metadata:
-      annotations: {{ .Values.plugin.metadata.annotations }}
+      annotations:
+        {{- with .Values.plugin.metadata.annotations }}
+        {{- range $key, $value := . }}
+        {{ $key }}: {{ $value | quote }}
+        {{- end }}
+        {{- end }}
