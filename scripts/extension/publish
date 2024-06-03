@@ -298,8 +298,25 @@ for d in pkg/*/ ; do
     fi
     sed -i.bak -e 's@endpoint: .*@endpoint: '"${ENDPOINT}"'@g' cr.yaml
     rm *.bak
-    popd > /dev/null
 
+  # Extract rancher.annotations from package.json
+  RANCHER_ANNOTATIONS=$(jq -r '.rancher.annotations' ${PACKAGE_JSON})
+
+  # Convert JSON annotations to YAML format with correct indentation
+  RANCHER_ANNOTATIONS_YAML=$(echo "$RANCHER_ANNOTATIONS" | jq -r 'to_entries | map("        \(.key): \"\(.value|tostring)\"") | .[]')
+
+  # Construct the replacement block
+  REPLACEMENT="      annotations:\n${RANCHER_ANNOTATIONS_YAML}"
+
+  # Replace the annotations block in cr.yaml
+  awk -v replacement="$REPLACEMENT" '
+  BEGIN { found=0 }
+  /annotations:/ { found=1; print replacement; next }
+  /^ *[^ ]/ { found=0 }
+  !found { print }
+  ' cr.yaml > cr.yaml.tmp && mv cr.yaml.tmp cr.yaml
+
+    popd > /dev/null
 
     # Additional patches
     ${SCRIPT_DIR}/helmpatch ${CHART_FOLDER} ${PACKAGE_JSON}
