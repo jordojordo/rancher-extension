@@ -1,0 +1,5 @@
+plugin/cluster-scoped-test-0.1.0.umd.min.1.js
+plugin/cluster-scoped-test-0.1.0.umd.min.1.js.map
+plugin/cluster-scoped-test-0.1.0.umd.min.js
+plugin/cluster-scoped-test-0.1.0.umd.min.js.map
+plugin/package.json
