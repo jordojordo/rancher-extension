@@ -1,12 +1,12 @@
 {
-  "name": "test-pkg",
-  "description": "test-pkg plugin",
-  "version": "0.2.1",
+  "name": "cluster-scoped-test",
+  "description": "cluster-scoped-test plugin",
+  "version": "0.1.0",
   "private": false,
   "rancher": {
     "annotations": {
       "catalog.cattle.io/kube-version": ">= v1.16.0-0 < v1.31.0-0",
-      "catalog.cattle.io/rancher-version": ">= 2.7.5-0"
+      "catalog.cattle.io/rancher-version": ">= v2.8.3"
     }
   },
   "scripts": {
