@@ -1,0 +1,16 @@
+apiVersion: catalog.cattle.io/v1
+kind: UIPlugin
+metadata:
+  name: {{ include "extension-server.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels: {{ include "extension-server.labels" . | nindent 4 }}
+spec:
+  plugin:
+    name: {{ include "extension-server.fullname" . }}
+    version: {{ (semver (default .Chart.AppVersion .Values.plugin.versionOverride)).Original }}
+    endpoint: https://raw.githubusercontent.com/jordojordo/rancher-extension/gh-pages/extensions/cluster-scoped-test/0.1.2
+    noCache: {{ .Values.plugin.noCache }}
+    metadata:
+      annotations:
+        catalog.cattle.io/kube-version: ">= v1.16.0-0 < v1.31.0-0"
+        catalog.cattle.io/rancher-version: ">= v2.8.3"
