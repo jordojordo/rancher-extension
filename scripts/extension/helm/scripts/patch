@@ -106,11 +106,19 @@ if [[ -n "${HOME}" ]]; then
 fi
 
 if [[ -n "${ANNOTATIONS}" ]]; then
+    ANNOTATION_STRING=""
+
     for ANNOTATION in ${ANNOTATIONS}; do
         decoded_annotation=$(echo ${ANNOTATION} | base64 --decode)
         key=$(echo ${decoded_annotation} | jq -r '.key')
         value=$(echo ${decoded_annotation} | jq -r '.value')
 
-        yq -i eval ".plugin.metadata.annotations[\"${key}\"] = \"${value}\"" $CHART/values.yaml
+        if [[ -n "${ANNOTATION_STRING}" ]]; then
+            ANNOTATION_STRING="${ANNOTATION_STRING}, "
+        fi
+
+        ANNOTATION_STRING="${ANNOTATION_STRING}${key}: ${value}"
     done
+
+    yq -i eval ".plugin.metadata.annotations = \"${ANNOTATION_STRING}\"" $CHART/values.yaml
 fi
