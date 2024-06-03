@@ -111,6 +111,6 @@ if [[ -n "${ANNOTATIONS}" ]]; then
         key=$(echo ${decoded_annotation} | jq -r '.key')
         value=$(echo ${decoded_annotation} | jq -r '.value')
 
-        yq -i eval ".plugin.metadata.annotations[\"${key}\"] = \"${value}\"" $CHART/values.yaml
+        yq -i eval ".plugin.metadata[\"${key}\"] = \"${value}\"" $CHART/values.yaml
     done
 fi
